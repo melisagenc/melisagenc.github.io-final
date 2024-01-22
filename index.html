@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Yeni Sayfa</title>
+</head>
+<body>
+    <div class="new-page-content">
+        <h1>Yeni Sayfa</h1>
+        <label for="username">İsminizi Girin:</label>
+        <input type="text" id="username" onkeypress="checkEnter(event)" />
+        <button onclick="welcomeUser()">Hoş Geldin Mesajını Gör</button>
+        <div id="welcome-message"></div>
+
+        <script>
+            function welcomeUser() {
+                var username = document.getElementById('username').value;
+                var welcomeMessage = "Merhaba " + username + ", sayfama hoş geldin!";
+                document.getElementById('welcome-message').innerHTML = welcomeMessage;
+
+                setTimeout(function() {
+                    window.location.href = 'newpage.html';
+                }, 3000);
+            }
+
+            function checkEnter(event) {
+                if (event.key === 'Enter') {
+                    welcomeUser();
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  <title>Proje Fotoğraflarım</title>
+</head>
+<body class="p4-body">
+
+    <div id="p4-photo-container"></div>
+     
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 7 adet örnek fotoğraf URL'i
+      const photoUrls = [
+        "/img/p1.jpeg",
+        "/img/p2.jpeg",
+        "/img/p3.jpeg",
+        "/img/p4.jpeg",
+        "/img/p5.jpeg",
+        "/img/p6.jpeg",
+        "/img/p7.jpeg",
+      ];
+
+      // Fotoğrafları karıştır
+      const shuffledPhotos = shuffleArray(photoUrls);
+
+      // Fotoğrafları HTML'e ekle
+      const photoContainer = document.getElementById("p4-photo-container");
+      shuffledPhotos.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = "Proje Fotoğrafı";
+        img.classList.add("photo");
+        photoContainer.appendChild(img);
+      });
+    });
+
+    // Diziyi karıştıran fonksiyon
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+  </script>
+</body>
+</html>

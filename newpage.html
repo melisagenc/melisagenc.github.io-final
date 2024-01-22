@@ -1,0 +1,106 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Melisa Genc</title>
+</head>
+<body onload="greetUser()" onkeydown="handleKeyPress(event)">
+    <div class="page1">
+        <div class="header">
+            <span>
+                <h1>Merhaba sayfama hoşgeldiniz...</h1>
+                <img id="pic" src="hi.png" width="85" height="85"/>
+            </span>
+    
+            <h1>İÇİNDEKİLER</h1>
+        </div>
+   
+        <div class="contents">
+            <div class="head">
+                <h1>İÇİNDEKİLER</h1>
+                <img id="pic" src="content.png" width="34" height="34"/>
+            </div>
+            <h2>Hakkımda</h2>
+            <h2>Eğitimim</h2>      
+            <h2>Hobilerim ve Ilgi Alanlarim</h2>
+            <h2>Projelerim</h2>
+            <h2>Yeteneklerim</h2>
+            <h2>Başarılarım</h2>
+        </div>
+
+        <div class="personel-info">
+            <a href="page2.html">KİŞİSEL BİLGİLERİM</a>
+            <img id="pic" src="info.gif" width="35" height="35" onclick="goToPage('page2.html')"/>
+        </div>
+        <div class="mail">
+            <a href="mailto:20221301096@ogr.msgsü.edu.tr"  target="_blank">MAIL</a>
+            <img id="pic" src="mail.gif" width="35" height="35" onclick="sendMail('20221301096@ogr.msgsü.edu.tr')"/>
+        </div>
+        <div class="notification">hellooo</div>
+         <div class="info-box">
+        <p>Kişisel bilgilerim için <strong>1</strong> tuşuna basınız</p>
+        <p>Projelerim hakkında detaylı bilgi için <strong>2</strong> tuşuna basınız</p>
+        <p>Hakkımda için <strong>3</strong> tuşuna basınız</p>
+    </div>
+
+    </div>
+
+    <script>
+        function goToPage(pageUrl) {
+            window.location.href = pageUrl;
+        }
+    
+        function sendMail(email) {
+            window.location.href = 'mailto:' + email;
+        }
+
+        function greetUser() {
+            var now = new Date();
+            var hours = now.getHours();
+
+            var greetingMessage = "";
+
+            if (hours >= 6 && hours < 18) {
+                greetingMessage = "İyi günler";
+            } else if (hours >= 18 && hours < 23) {
+                greetingMessage = "İyi akşamlar";
+            } else {
+                greetingMessage = "İyi geceler";
+            }
+
+            showNotification(greetingMessage);
+        }
+
+        function showNotification(message) {
+            var notificationElement = document.querySelector('.notification');
+            notificationElement.innerHTML = message;
+            notificationElement.style.display = 'block';
+        }
+        function handleKeyPress(event) {
+            switch (event.key) {
+                case '1':
+                    window.location.href = 'page2.html#personal-info';
+                    break;
+                case '2':
+                    window.location.href = 'page4.html';
+                    break;
+                case '3':
+                    window.location.href =  'page3.html';
+                    break;
+                default:
+                    break;
+            }7
+        }
+
+    </script>
+</body>
+</html>
+
